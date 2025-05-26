@@ -49,7 +49,7 @@ const modulesData = [
         id: 5,
         name: "Гепард",
         image: "https://crossoutdb.com/img/items/90/engine_light.png",
-        faction: "Лунатики",
+        faction: "Механика",
         factionIcon: "https://crossoutdb.com/img/factions/lunatics.png",
         rarity: "Эпический",
         description: "Двигатель для скоростных машин.",
@@ -60,7 +60,7 @@ const modulesData = [
         id: 6,
         name: "Четкий",
         image: "https://crossoutdb.com/img/items/90/engine_medium.png",
-        faction: "Кочевники",
+        faction: "Бешеные",
         factionIcon: "https://crossoutdb.com/img/factions/nomads.png",
         rarity: "Редкий",
         description: "Сбалансированный двигатель для средних машин.",
@@ -93,7 +93,7 @@ const modulesData = [
         id: 9,
         name: "Финвал",
         image: "https://crossoutdb.com/img/items/90/engine_medium.png",
-        faction: "Поджигатели",
+        faction: "Огнепоклонники",
         factionIcon: "https://crossoutdb.com/img/factions/firestarters.png",
         rarity: "Редкий",
         description: "Специальный двигатель для огненных машин.",
@@ -104,7 +104,7 @@ const modulesData = [
         id: 10,
         name: "Оябун",
         image: "https://crossoutdb.com/img/items/90/engine_legendary.png",
-        faction: "Кочевники",
+        faction: "Бешеные",
         factionIcon: "https://crossoutdb.com/img/factions/nomads.png",
         rarity: "Легендарный",
         description: "Эксклюзивный двигатель с уникальными характеристиками.",
@@ -150,7 +150,7 @@ const modulesData = [
         id: 14,
         name: "ЭУ-1 Заряд",
         image: "https://crossoutdb.com/img/items/90/generator_compact.png",
-        faction: "Поджигатели",
+        faction: "Огнепоклонники",
         factionIcon: "https://crossoutdb.com/img/factions/firestarters.png",
         rarity: "Редкий",
         description: "Компактный генератор энергии.",
@@ -161,7 +161,7 @@ const modulesData = [
         id: 15,
         name: "Газген",
         image: "https://crossoutdb.com/img/items/90/generator_basic.png",
-        faction: "Кочевники",
+        faction: "Бешеные",
         factionIcon: "https://crossoutdb.com/img/factions/nomads.png",
         rarity: "Обычный",
         description: "Генератор на газовом топливе.",
@@ -172,7 +172,7 @@ const modulesData = [
         id: 16,
         name: "Бутстрел",
         image: "https://crossoutdb.com/img/items/90/generator_light.png",
-        faction: "Лунатики",
+        faction: "Механика",
         factionIcon: "https://crossoutdb.com/img/factions/lunatics.png",
         rarity: "Редкий",
         description: "Легкий генератор для скоростных машин.",
@@ -205,7 +205,7 @@ const modulesData = [
         id: 19,
         name: "Один",
         image: "https://crossoutdb.com/img/items/90/generator_special.png",
-        faction: "Поджигатели",
+        faction: "Огнепоклонники",
         factionIcon: "https://crossoutdb.com/img/factions/firestarters.png",
         rarity: "Легендарный",
         description: "Экспериментальный генератор с уникальными характеристиками.",
@@ -218,7 +218,7 @@ const modulesData = [
         id: 20,
         name: "Y-1 Авиатор",
         image: "https://crossoutdb.com/img/items/90/booster_basic.png",
-        faction: "Кочевники",
+        faction: "Бешеные",
         factionIcon: "https://crossoutdb.com/img/factions/nomads.png",
         rarity: "Редкий",
         description: "Базовый ускоритель для кратковременного рывка.",
@@ -229,7 +229,7 @@ const modulesData = [
         id: 21,
         name: "Разгон",
         image: "https://crossoutdb.com/img/items/90/booster_simple.png",
-        faction: "Лунатики",
+        faction: "Механика",
         factionIcon: "https://crossoutdb.com/img/factions/lunatics.png",
         rarity: "Обычный",
         description: "Простой ускоритель для начинающих.",
@@ -297,7 +297,7 @@ const modulesData = [
         id: 27,
         name: "Доллер",
         image: "https://crossoutdb.com/img/items/90/radar_compact.png",
-        faction: "Кочевники",
+        faction: "Бешеные",
         factionIcon: "https://crossoutdb.com/img/factions/nomads.png",
         rarity: "Редкий",
         description: "Компактный радар для легких машин.",
@@ -319,7 +319,7 @@ const modulesData = [
         id: 29,
         name: "Верификатор",
         image: "https://crossoutdb.com/img/items/90/radar_special.png",
-        faction: "Поджигатели",
+        faction: "Огнепоклонники",
         factionIcon: "https://crossoutdb.com/img/factions/firestarters.png",
         rarity: "Эпический",
         description: "Радар с функцией обнаружения невидимых целей.",
@@ -391,4 +391,113 @@ function getRarityBadgeClass(rarity) {
 }
 
 
-document.addEventListener('DOMContentLoaded', loadModules);
+
+document.addEventListener('DOMContentLoaded', function() {
+   
+    loadModules();
+    
+   
+    const factionFilter = document.getElementById('factionFilter');
+    const rarityFilter = document.getElementById('rarityFilter');
+    const typeFilter = document.getElementById('typeFilter');
+    const applyBtn = document.getElementById('applyFilters');
+    const resetBtn = document.getElementById('resetFilters');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    
+   
+    applyBtn.addEventListener('click', applyFilters);
+    resetBtn.addEventListener('click', resetFilters);
+    searchButton.addEventListener('click', applyFilters);
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') applyFilters();
+    });
+    
+    
+    function applyFilters() {
+        const factionValue = factionFilter.value;
+        const rarityValue = rarityFilter.value;
+        const typeValue = typeFilter.value;
+        const searchValue = searchInput.value.toLowerCase();
+        
+        const filteredModules = modulesData.filter(module => {
+           
+            const factionMatch = factionValue === 'all' || module.faction === factionValue;
+            
+          
+            const rarityMatch = rarityValue === 'all' || module.rarity === rarityValue;
+            
+          
+            const typeMatch = typeValue === 'all' || module.type === typeValue;
+            
+          
+            const searchMatch = searchValue === '' || 
+                module.name.toLowerCase().includes(searchValue) || 
+                module.description.toLowerCase().includes(searchValue);
+            
+            return factionMatch && rarityMatch && typeMatch && searchMatch;
+        });
+        
+        displayFilteredModules(filteredModules);
+    }
+    
+    
+    function resetFilters() {
+        factionFilter.value = 'all';
+        rarityFilter.value = 'all';
+        typeFilter.value = 'all';
+        searchInput.value = '';
+        loadModules(); 
+    }
+    
+  
+    function displayFilteredModules(filteredModules) {
+        const container = document.getElementById('modules-container');
+        container.innerHTML = '';
+        
+        if (filteredModules.length === 0) {
+            container.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <h4>Ничего не найдено</h4>
+                    <p>Попробуйте изменить параметры поиска</p>
+                </div>
+            `;
+            return;
+        }
+        
+        filteredModules.forEach(module => {
+            const rarityClass = getRarityClass(module.rarity);
+            
+            const moduleHTML = `
+                <div class="col-md-6 col-lg-4">
+                    <div class="card module-card ${rarityClass} h-100">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <img src="${module.image}" alt="${module.name}" class="module-icon" 
+                                     onerror="this.onerror=null;this.src='https://via.placeholder.com/80/333333/FFFFFF?text=No+Image'">
+                                <div>
+                                    <h5 class="card-title">${module.name}</h5>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="${module.factionIcon}" alt="${module.faction}" class="faction-icon" 
+                                             onerror="this.onerror=null;this.src='https://via.placeholder.com/30/333333/FFFFFF?text=F'">
+                                        <span class="badge ${getRarityBadgeClass(module.rarity)}">${module.rarity}</span>
+                                    </div>
+                                    <p class="card-text">${module.description}</p>
+                                    <ul class="list-group list-group-flush">
+                                        ${module.stats.map(stat => `<li class="list-group-item">${stat}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <button class="btn btn-sm btn-outline-primary">Подробности</button>
+                            <button class="btn btn-sm btn-outline-success">Добавить в сборку</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML += moduleHTML;
+        });
+    }
+});

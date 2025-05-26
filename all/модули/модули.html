@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Информация о модулях в Crossout</title>
+    <title>Модули Crossout</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://crossout.net/images/logo.png" alt="Crossout" height="30">
+                <img src="https://crossout.net/images/logo.png" alt="Crossout">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -20,81 +20,81 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Главная</a>
+                        <a href="file:///C:/Users/Даниил/Desktop/all/кабины/кабины.html" class="btn btn-orange btn-lg me-2">Кабины</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Модули</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Оружие</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Машины</a>
-                    </li>
+                    <li class="nav-item"><a href="file:///C:/Users/Даниил/Desktop/all/лицевой%20сайт/лицевой.html" class="nav-link" href="#">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Модули</a></li>
+                    <li class="nav-item"><a href="file:///C:/Users/Даниил/Desktop/all/оружие/оружие.html" class="nav-link" href="#">Оружие</a></li>
+                    <li class="nav=item"><a href="file:///C:/Users/Даниил/Desktop/all/кабины/кабины.html" class="nav-link" href="#">Кабины</a></li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Поиск модулей...">
-                    <button class="btn btn-outline-light" type="submit">Поиск</button>
+                    <input class="form-control me-2" type="search" placeholder="Поиск..." id="searchInput">
+                    <button class="btn btn-outline-orange" type="button" id="searchButton">Найти</button>
                 </form>
             </div>
         </div>
     </nav>
 
-   
-    <header class="bg-primary text-white py-5">
+  
+    <header>
         <div class="container text-center">
-            <h1>Модули Crossout</h1>
-            <p class="lead">Улучшите свою машину мощными модулями</p>
+            <h1 class="h3">МОДУЛИ CROSSOUT</h1>
+            <p class="text-muted">Каталог компонентов для вашей машины</p>
         </div>
     </header>
 
     
-    <div class="container py-5">
+    <div class="container py-4">
         
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <select class="form-select">
-                    <option selected>Все фракции</option>
-                    <option>Механики</option>
-                    <option>Дикие</option>
-                    <option>Мусорщики</option>
-                    <option>Степные волки</option>
-                    <option>Дети Рассвета</option>
-                    <option>Огнепоклонники</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-select">
-                    <option selected>Все редкости</option>
-                    <option>Обычный</option>
-                    <option>Редкий</option>
-                    <option>Эпический</option>
-                    <option>Легендарный</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-select">
-                    <option selected>Все типы</option>
-                    <option>Двигатель</option>
-                    <option>Радар</option>
-                    <option>Хамелеон</option>
-                    <option>Энергия</option>
-                    <option>Другое</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <button class="btn btn-outline-primary w-100">Применить фильтры</button>
+        <div class="filter-panel">
+            <div class="row g-2">
+                <div class="col-md-3">
+                    <select class="form-select" id="factionFilter">
+                        <option value="all" selected>Все фракции</option>
+                        <option>Механика</option>
+                        <option>Бешеные</option>
+                        <option>Мусорщики</option>
+                        <option>Степные волки</option>
+                        <option>Дети Рассвета</option>
+                        <option>Огнепоклонники</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" id="rarityFilter">
+                        <option value="all" selected>Все редкости</option>
+                        <option>Обычный</option>
+                        <option>Редкий</option>
+                        <option>Эпический</option>
+                        <option>Легендарный</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="typeFilter">
+                        <option value="all" selected>Все типы</option>
+                        <option>Двигатель</option>
+                        <option>Генератор</option>
+                        <option>Ускоритель</option>
+                        <option>Радар</option>
+                        <option>Хамелеон</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-orange w-100" id="applyFilters">Применить</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-dark w-100" id="resetFilters">Сбросить</button>
+                </div>
             </div>
         </div>
 
-        
-        <div class="row" id="modules-container">
-            
+     
+        <div class="row g-3" id="modules-container">
+           
         </div>
 
         
-        <nav aria-label="Навигация по модулям" class="mt-4">
-            <ul class="pagination justify-content-center">
+        <nav aria-label="Навигация" class="mt-4">
+            <ul class="pagination justify-content-center" id="pagination">
                 <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1">Назад</a>
                 </li>
@@ -108,41 +108,7 @@
         </nav>
     </div>
 
-    <!-- Подвал -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>О Crossout</h5>
-                    <p>Crossout - это постапокалиптическая MMO-игра, где вы создаете боевые машины из множества деталей.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Быстрые ссылки</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Официальный сайт</a></li>
-                        <li><a href="#" class="text-white">Вики</a></li>
-                        <li><a href="#" class="text-white">Форум</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Соцсети</h5>
-                    <div class="social-links">
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="text-center">
-                <p class="mb-0">© 2023 База данных модулей Crossout. Не связано с Gaijin Entertainment.</p>
-            </div>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>

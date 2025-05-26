@@ -1,50 +1,76 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crossout - Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
-            color: #ffffff;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
-        }
-        .button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: #ffffff;
-            background-color: #333333;
-            border: 2px solid #555555;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #555555;
-        }
+      #feedbackSection {
+        display: none; /* по умолчанию скрыта */
+        margin-top: 20px;
+      }
     </style>
 </head>
 <body>
-    <h1>Добро пожаловать в Crossout</h1>
-    <p>Выберите раздел, чтобы перейти на соответствующую страницу:</p>
-    
-    <div class="button-container">
-        <a href="file:///C:/Users/Даниил/Desktop/all/кабины/кабины.html" class="button">Кабины</a>
-        <a href="file:///C:/Users/Даниил/Desktop/all/оружие/discribe_gun_type.html" class="button">Оружие</a>
-        <a href="file:///C:/Users/Даниил/Desktop/all/модули/модули.html" class="button">Модули</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://crossout.net/images/logo.png" alt="Crossout" class="logo" />
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <h1 class="main-title">Добро пожаловать в Crossout</h1>
+            <p class="main-subtitle">Выберите раздел, чтобы перейти на соответствующую страницу:</p>
+            
+            <div class="button-container mb-4">
+                <a href="file:///C:/Users/Даниил/Desktop/all/кабины/кабины.html" class="btn btn-orange btn-lg me-2">Кабины</a>
+                <a href="file:///C:/Users/Даниил/Desktop/all/оружие/оружие.html" class="btn btn-orange btn-lg me-2">Оружие</a>
+                <a href="file:///C:/Users/Даниил/Desktop/all/модули/модули.html" class="btn btn-orange btn-lg">Модули</a>
+            </div>
+            <!-- Кнопка для открытия формы обратной связи -->
+            <div class="feedback-button-container">
+                <button id="openFeedbackBtn" class="btn btn-secondary mb-4">Обратная связь</button>
+            </div>
+            
+        
+
+            <!-- Раздел формы обратной связи, скрыт по умолчанию -->
+            <div id="feedbackSection">
+                <h2>Обратная связь</h2>
+                <form id="feedbackForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Имя:</label>
+                        <input type="text" class="form-control" id="name" name="name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Сообщение:</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-center">Web-тех по кроссауту :)</p>
+        </div>
+    </footer>
+
+    <!-- Подключение скрипта для открытия/закрытия формы -->
+    <script src="toggleFeedback.js"></script>
+    <!-- Скрипт обработки формы -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
