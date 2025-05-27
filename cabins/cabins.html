@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossout - База данных кабин</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://crossout.net/images/logo.png" alt="Crossout">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="file:///C:/Users/Даниил/Desktop/all/face/face.html" class="btn btn-orange btn-lg me-2">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="file:///C:/Users/Даниил/Desktop/all/cabins/cabins.html" class="btn btn-orange btn-lg me-2">Кабины</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="file:///C:/Users/Даниил/Desktop/all/gun/gun.html" class="btn btn-orange btn-lg me-2">Оружие</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="file:///C:/Users/Даниил/Desktop/all/module/module.html" class="btn btn-orange btn-lg">Модули</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="mb-4">
+        <div class="container text-center">
+            <h1 class="display-4">База данных кабин</h1>
+            <p class="lead">Полная информация о всех кабинах в Crossout</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="filter-panel mb-4">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Поиск кабин...">
+                        <button id="searchButton" class="btn btn-orange">Поиск</button>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <button id="resetFilters" class="btn btn-dark me-2">Сбросить</button>
+                    <button id="applyFilters" class="btn btn-orange">Применить</button>
+                </div>
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-4 mb-3">
+                    <label for="factionFilter" class="form-label">Фракция</label>
+                    <select id="factionFilter" class="form-select">
+                        <option value="all">Все фракции</option>
+                        <option value="Мусорщики">Мусорщики</option>
+                        <option value="Степные волки">Степные волки</option>
+                        <option value="Бешеные">Бешеные</option>
+                        <option value="Огнепоклонники">Огнепоклонники</option>
+                        <option value="Дети Рассвета">Дети Рассвета</option>
+                        <option value="Механика">Механика</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="rarityFilter" class="form-label">Редкость</label>
+                    <select id="rarityFilter" class="form-select">
+                        <option value="all">Все редкости</option>
+                        <option value="Обычный">Обычный</option>
+                        <option value="Редкий">Редкий</option>
+                        <option value="Необычный">Необычный</option>
+                        <option value="Эпический">Эпический</option>
+                        <option value="Легендарный">Легендарный</option>
+                        <option value="Реликтовый">Реликтовый</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="typeFilter" class="form-label">Тип</label>
+                    <select id="typeFilter" class="form-select">
+                        <option value="all">Все типы</option>
+                        <option value="Легкий">Легкий</option>
+                        <option value="Средний">Средний</option>
+                        <option value="Тяжелый">Тяжелый</option>
+                        <option value="Специальный">Специальный</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row" id="modules-container">
+            
+        </div>
+
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Назад</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Вперед</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <footer class="bg-dark text-center text-light py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">Crossout DB © 2023 | Все права защищены</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
